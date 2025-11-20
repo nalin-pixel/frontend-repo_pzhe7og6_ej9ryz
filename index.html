@@ -1,18 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flames App</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEUROSHIELD – AI Mental Health Risk Analyzer</title>
+  <meta name="description" content="Analyze text & images to detect emotional and suicide risk using AI. Privacy-safe prototype for teen mental health."/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect rx='12' width='64' height='64' fill='%236C63FF'/><path d='M32 14l14 8v12c0 9-6 17-14 20-8-3-14-11-14-20V22l14-8z' fill='white'/></svg>">
+  <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splinetool/viewer@1.9.47/build/spline-viewer.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">🛡️</div>
+        <span>NEUROSHIELD</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="text.html">Text Analyzer</a>
+        <a href="image.html">Image Analyzer</a>
+        <a href="dashboard.html">Dashboard</a>
+        <button class="theme-toggle" data-theme-toggle>🌙 Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l7 4v5c0 5-3.5 9.5-7 11-3.5-1.5-7-6-7-11V6l7-4z" stroke="currentColor" stroke-width="1.5"/></svg> AI Guardian for Teen Mental Health</div>
+        <h1>NEUROSHIELD – AI Mental Health Risk Analyzer</h1>
+        <p>Analyze text & images to detect emotional and suicide risk using AI.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="text.html">Use Text Analyzer</a>
+          <a class="btn btn-ghost" href="image.html">Use Image Analyzer</a>
+        </div>
+        <div class="cta">
+          <h3>Start Detecting Mental Health Signals Now</h3>
+          <p class="lead">Try our text or image analyzer. Your inputs are processed via Hugging Face inference APIs. Keep a private copy of your token locally for best results.</p>
+          <div class="bullets">
+            <div class="bullet"><div class="dot">⚡</div><div>AI-powered sentiment & emotion analysis</div></div>
+            <div class="bullet"><div class="dot">🛡️</div><div>Privacy-safe prototype – no data stored on server</div></div>
+            <div class="bullet"><div class="dot">📈</div><div>Suicide risk scoring (1–10) with dashboard</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="spline-wrap">
+          <spline-viewer loading-anim="spinner" style="width:100%;height:100%" url="https://prod.spline.design/pDXeCthqjmzYX5Zk/scene.splinecode"></spline-viewer>
+          <div class="spline-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2>Powerful features, gentle design</h2>
+      <p class="lead">Built to help spot early warning signs while keeping a calming, friendly aesthetic.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>AI-powered sentiment</h3>
+          <p>Understands emotional tone in text with transformer models.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧪</div>
+          <h3>Suicide risk score</h3>
+          <p>Heuristic score from 1–10 combining multiple AI signals.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3>Privacy-safe prototype</h3>
+          <p>Runs directly in your browser via Hugging Face APIs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources & Wellness -->
+  <section class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h3>Motivational Quote</h3>
+        <p class="lead" id="quote">“You are stronger than you think.”</p>
+        <button class="btn" onclick="document.getElementById('quote').textContent=randomQuote()">New Quote</button>
+      </div>
+      <div class="card" style="display:grid;place-items:center">
+        <div class="breathe-box">Breathe</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="bullets" style="margin-bottom:10px">
+        <div><strong>Helplines:</strong></div>
+        <div>India: 9152987821 (Kiran) • USA: 988 • UK: 116 123 • Global: https://www.iasp.info/resources/Crisis_Centres/</div>
+      </div>
+      <div>© 2025 NeuroShield – Educational prototype. Not a medical device.</div>
+    </div>
+  </footer>
+</body>
 </html>
